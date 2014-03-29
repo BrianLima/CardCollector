@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="CardCollector.PlayerCardControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="100.392" d:DesignWidth="490.458">
+
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
+        <Image Source="{Binding caminhoFoto}" x:Name="fotoJogador" HorizontalAlignment="Left" Height="80" Margin="10,10,0,0" VerticalAlignment="Top" Width="80"/>
+        <TextBlock Text="{Binding nomeJogador}" x:Name="nomeJogador" HorizontalAlignment="Left" Margin="95,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Width="375" Height="48"/>
+        <TextBlock Text="{Binding timeJogador}" x:Name="timeJogador" HorizontalAlignment="Left" Margin="95,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" Height="27"/>
+        <TextBlock HorizontalAlignment="Left" Margin="332,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Quantidade"/>
+        <TextBlock x:Name="quantidade" Margin="441,63,0,0" TextWrapping="Wrap" Text="XX" VerticalAlignment="Top" Height="31" Width="39"/>
+
+    </Grid>
+</UserControl>

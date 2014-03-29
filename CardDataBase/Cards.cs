@@ -6,7 +6,6 @@ namespace CardDataBase
     /*
      * Classe base para o banco de dados
      * Tabela: Cards
-     * 
      */
     [Table(Name = "Cards")]
     public class Cards
@@ -26,6 +25,10 @@ namespace CardDataBase
         private string _caminhoFoto;
         [Column(Name = "caminhoFoto", CanBeNull = false)]
         public string caminhoFoto { get { return _caminhoFoto; } set { _caminhoFoto = value; } }
+
+        private int _nivelRaridade;
+        [Column(Name = "nivelRaridade", CanBeNull=false)]
+        public int nivelRaridade { get { return _nivelRaridade; } set { _nivelRaridade = value; } }
 
         public IEnumerable ObtemCards()
         {

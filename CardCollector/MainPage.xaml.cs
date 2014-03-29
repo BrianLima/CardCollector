@@ -53,7 +53,8 @@ namespace CardCollector
                 Cards card = new Cards();
                 card.nomeJogador = "briano";
                 card.timeJogador = "time maroto";
-                card.caminhoFoto = "caminho da foto na solution";
+                card.caminhoFoto = "/Assets/Cards/HueHueBr/JulioCesar.jpg";
+                card.nivelRaridade = 1;
                 card.Gravar();
                 AtualizarCards();
             }
