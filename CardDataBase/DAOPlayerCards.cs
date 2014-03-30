@@ -21,7 +21,7 @@ namespace CardDataBase
             List<PlayerCards> dados = new List<PlayerCards>();
             using (PlayerDataBaseContext db = new PlayerDataBaseContext(DataBaseContext.ConnectionString))
             {
-                dados = (from playerCards in db.playerCards orderby playerCards.timeJogador select playerCards).ToList();
+                dados = (from playerCards in db.playerCards orderby playerCards.quantidade select playerCards).ToList();
             }
             return dados;
         }

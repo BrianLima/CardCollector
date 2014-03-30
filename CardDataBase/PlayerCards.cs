@@ -14,13 +14,13 @@ namespace CardDataBase
         [Column(Name = "id", IsPrimaryKey = true, IsDbGenerated = true, CanBeNull = false)]
         public int id { get { return _id; } set { _id = value; } }
 
-        private string _idCard;
+        private int _idCard;
         [Column(Name = "idCard", CanBeNull = false)]
-        public string idCard{ get { return _idCard; } set { _idCard = value; } }
+        public int idCard{ get { return _idCard; } set { _idCard = value; } }
 
-        private string _quantidade;
+        private int _quantidade;
         [Column(Name="quantidade", CanBeNull = false)]
-        public string timeJogador { get { return _quantidade; } set { _quantidade = value; } }
+        public int quantidade { get { return _quantidade; } set { _quantidade = value; } }
 
         public IEnumerable ObtemCards()
         {
@@ -28,7 +28,7 @@ namespace CardDataBase
             return daoPlayerCards.ObtemCards();
         }
 
-        public bool Gravar()
+        public bool Incluir()
         {
             DAOPlayerCards daoPlayerCards = new DAOPlayerCards();
             return daoPlayerCards.Gravar(this);
