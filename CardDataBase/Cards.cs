@@ -34,40 +34,46 @@ namespace CardDataBase
         [Column(Name = "quantidade", CanBeNull = true)]
         public int quantidade { get { return _quantidade; } set { _quantidade = value; } }
 
-        public IEnumerable ObtemCards()
+        public IEnumerable getAllCards()
         {
             DAOCards daoCards = new DAOCards();
-            return daoCards.ObtemCards();
+            return daoCards.getAllCards();
         }
 
-        public Cards ObterCard(int id)
+        public IEnumerable getMyCards()
+        {
+            DAOCards daoCards = new DAOCards();
+            return daoCards.getMyCards();
+        }
+
+        public Cards getCard(int id)
         {
             DAOCards daorCards = new DAOCards();
-            return daorCards.obterCard(id);
+            return daorCards.getCard(id);
         }
 
-        public bool Gravar()
+        public bool Save()
         {
             DAOCards daoCards = new DAOCards();
-            return daoCards.Gravar(this);
+            return daoCards.Save(this);
         }
 
-        public bool Excluir()
+        public bool Destroy()
         {
             DAOCards daoCards = new DAOCards();
-            return daoCards.Excluir(this);
+            return daoCards.Destroy(this);
         }
 
-        public bool Incrementar()
+        public bool Increase()
         {
             DAOCards daoCards = new DAOCards();
-            return daoCards.Incrementa(this);
+            return daoCards.Increase(this);
         }
 
-        public bool Decrementar()
+        public bool Decrease()
         {
             DAOCards daoCards = new DAOCards();
-            return daoCards.Decrementa(this);
+            return daoCards.Decrease(this);
         }
     }
 }

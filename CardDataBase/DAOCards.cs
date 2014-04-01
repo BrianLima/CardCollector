@@ -19,8 +19,8 @@ namespace CardDataBase
         /// <summary>
         /// Pesquisa todos os cards cadastrados
         /// </summary>
-        /// <returns></returns>
-        public IEnumerable<Cards> ObtemCards()
+        /// <returns>Todos os cards</returns>
+        public IEnumerable<Cards> getAllCards()
         {
             List<Cards> dados = new List<Cards>();
             using (DataBaseContext db = new DataBaseContext(DataBaseContext.ConnectionString))
@@ -33,11 +33,28 @@ namespace CardDataBase
         }
 
         /// <summary>
+        /// Pesquisa os cards do jogador
+        /// </summary>
+        /// <returns>Os cards do jogador</returns>
+        internal IEnumerable getMyCards()
+        {
+            List<Cards> dados = new List<Cards>();
+            using(DataBaseContext db = new DataBaseContext(DataBaseContext.ConnectionString))
+            {
+                dados = (from cards in db.cards
+                         where cards.quantidade > 0
+                         orderby cards.timeJogador
+                         select cards).ToList();
+            }
+            return dados;
+        }
+
+        /// <summary>
         /// Pesquisa um card especifico
         /// </summary>
         /// <param name="id">id do card</param>
-        /// <returns>card</returns>
-        public Cards obterCard(int id)
+        /// <returns>card específico</returns>
+        public Cards getCard(int id)
         {
             List<Cards> dado = new List<Cards>();
             using(DataBaseContext db = new DataBaseContext(DataBaseContext.ConnectionString))
@@ -53,8 +70,8 @@ namespace CardDataBase
         /// Salva um card para o banco de dados
         /// </summary>
         /// <param name="card"></param>
-        /// <returns></returns>
-        public bool Gravar(Cards card)
+        /// <returns>bool</returns>
+        public bool Save(Cards card)
         {
             try
             {
@@ -75,8 +92,8 @@ namespace CardDataBase
         /// Exclui o card do banco de dados
         /// </summary>
         /// <param name="card"></param>
-        /// <returns></returns>
-        public bool Excluir(Cards card)
+        /// <returns>bool</returns>
+        public bool Destroy(Cards card)
         {
             try
             {
@@ -94,7 +111,12 @@ namespace CardDataBase
             }
         }
 
-        public bool Incrementa(Cards card)
+        /// <summary>
+        /// Aumenta em 1 o card especificado
+        /// </summary>
+        /// <param name="card"></param>
+        /// <returns>bool</returns>
+        public bool Increase(Cards card)
         {
             try
             {
@@ -114,7 +136,12 @@ namespace CardDataBase
             }
         }
 
-        public bool Decrementa(Cards card)
+        /// <summary>
+        /// Diminui 1 no card especificado
+        /// </summary>
+        /// <param name="card"></param>
+        /// <returns>bool</returns>
+        public bool Decrease(Cards card)
         {
             try
             {

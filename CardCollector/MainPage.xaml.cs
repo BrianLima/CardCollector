@@ -55,8 +55,8 @@ namespace CardCollector
                 Cards card = new Cards();
                 Random rand = new Random();
                 int id = rand.Next(1,2);
-                card = card.ObterCard(id);
-                card.Incrementar();
+                card = card.getCard(id);
+                card.Increase();
                 AtualizarCards();
             }
         }
@@ -64,7 +64,7 @@ namespace CardCollector
         private void AtualizarCards()
         {
             Cards cards = new Cards();
-            listCards.ItemsSource = cards.ObtemCards();
+            listCards.ItemsSource = cards.getMyCards();
         }
 
         private void criarCards()
@@ -75,7 +75,7 @@ namespace CardCollector
             card.caminhoFoto = "/Assets/Cards/HueHueBr/JulioCesar.jpg";
             card.nivelRaridade = 1;
             card.quantidade = 1;
-            card.Gravar();
+            card.Save();
         }
     }
 }

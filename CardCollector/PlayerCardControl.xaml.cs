@@ -24,7 +24,7 @@ namespace CardCollector
             if (t != null)
             {
                 Cards card = t.DataContext as Cards;
-                card.Incrementar();
+                card.Increase();
             }
         }
     }

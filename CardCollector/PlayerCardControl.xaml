@@ -7,13 +7,13 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignHeight="100.392" d:DesignWidth="400.458">
+    d:DesignHeight="100.392" Width="381">
 
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
         <Image Source="{Binding caminhoFoto}" x:Name="fotoJogador" HorizontalAlignment="Left" Height="80" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" DoubleTap="fotoJogador_DoubleTap"/>
-        <TextBlock Text="{Binding nomeJogador}" x:Name="nomeJogador" HorizontalAlignment="Left" Margin="95,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Width="295" Height="48"/>
+        <TextBlock Text="{Binding nomeJogador}" x:Name="nomeJogador" HorizontalAlignment="Left" Margin="95,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Width="276" Height="48"/>
         <TextBlock Text="{Binding timeJogador}" x:Name="timeJogador" HorizontalAlignment="Left" Margin="95,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Height="27"/>
-        <TextBlock Text="Total:" HorizontalAlignment="Left" Margin="256,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,1.331" Width="49"/>
         <TextBlock Text="{Binding quantidade}" x:Name="quantidade" Margin="305,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="39" HorizontalAlignment="Left"/>
+        <TextBlock Text="Total:" HorizontalAlignment="Left" Margin="256,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,1.331" Width="49"/>
     </Grid>
 </UserControl>
