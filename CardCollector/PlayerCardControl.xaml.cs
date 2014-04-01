@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using CardDataBase;
 
 namespace CardCollector
 {
@@ -15,6 +16,16 @@ namespace CardCollector
         public PlayerCardControl()
         {
             InitializeComponent();
+        }
+
+        private void fotoJogador_DoubleTap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            var t = sender as Image;
+            if (t != null)
+            {
+                Cards card = t.DataContext as Cards;
+                card.Incrementar();
+            }
         }
     }
 }

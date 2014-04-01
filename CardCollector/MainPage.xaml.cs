@@ -23,11 +23,6 @@ namespace CardCollector
             AtualizarCards();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         // Sample code for building a localized ApplicationBar
         private void BuildLocalizedApplicationBar()
         {
@@ -36,9 +31,14 @@ namespace CardCollector
 
             // Create a new button and set the text value to the localized string from AppResources.
             ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-            appBarButton.Text = AppResources.AppBarButtonText;
+            appBarButton.Text = "Comprar card";
             appBarButton.Click += appBarButton_Click;
             ApplicationBar.Buttons.Add(appBarButton);
+
+            ApplicationBarIconButton appBarButton1 = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
+            appBarButton1.Text = "Vender Card";
+            appBarButton1.Click += appBarButton_Click;
+            ApplicationBar.Buttons.Add(appBarButton1);
 
             // Create a new menu item with the localized string from AppResources.
             ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
@@ -50,12 +50,13 @@ namespace CardCollector
             var t = sender as ApplicationBarIconButton;
             if (t != null)
             {
+                criarCards();
+                
                 Cards card = new Cards();
-                card.nomeJogador = "briano";
-                card.timeJogador = "time maroto";
-                card.caminhoFoto = "/Assets/Cards/HueHueBr/JulioCesar.jpg";
-                card.nivelRaridade = 1;
-                card.Gravar();
+                Random rand = new Random();
+                int id = rand.Next(1,2);
+                card = card.ObterCard(id);
+                card.Incrementar();
                 AtualizarCards();
             }
         }
@@ -64,6 +65,17 @@ namespace CardCollector
         {
             Cards cards = new Cards();
             listCards.ItemsSource = cards.ObtemCards();
+        }
+
+        private void criarCards()
+        {
+            Cards card = new Cards();
+            card.nomeJogador = "briano";
+            card.timeJogador = "time maroto";
+            card.caminhoFoto = "/Assets/Cards/HueHueBr/JulioCesar.jpg";
+            card.nivelRaridade = 1;
+            card.quantidade = 1;
+            card.Gravar();
         }
     }
 }

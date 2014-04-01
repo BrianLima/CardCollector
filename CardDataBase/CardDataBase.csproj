@@ -83,12 +83,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="PlayerCards.cs" />
     <Compile Include="Cards.cs" />
-    <Compile Include="DAOPlayerCards.cs" />
     <Compile Include="DAOCards.cs" />
-    <Compile Include="PlayerDataBaseContext .cs" />
     <Compile Include="DataBaseContext.cs" />
+    <Compile Include="Players.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />

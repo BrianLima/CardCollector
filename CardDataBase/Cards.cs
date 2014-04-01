@@ -30,10 +30,20 @@ namespace CardDataBase
         [Column(Name = "nivelRaridade", CanBeNull=false)]
         public int nivelRaridade { get { return _nivelRaridade; } set { _nivelRaridade = value; } }
 
+        private int _quantidade;
+        [Column(Name = "quantidade", CanBeNull = true)]
+        public int quantidade { get { return _quantidade; } set { _quantidade = value; } }
+
         public IEnumerable ObtemCards()
         {
             DAOCards daoCards = new DAOCards();
             return daoCards.ObtemCards();
+        }
+
+        public Cards ObterCard(int id)
+        {
+            DAOCards daorCards = new DAOCards();
+            return daorCards.obterCard(id);
         }
 
         public bool Gravar()
@@ -46,6 +56,18 @@ namespace CardDataBase
         {
             DAOCards daoCards = new DAOCards();
             return daoCards.Excluir(this);
+        }
+
+        public bool Incrementar()
+        {
+            DAOCards daoCards = new DAOCards();
+            return daoCards.Incrementa(this);
+        }
+
+        public bool Decrementar()
+        {
+            DAOCards daoCards = new DAOCards();
+            return daoCards.Decrementa(this);
         }
     }
 }

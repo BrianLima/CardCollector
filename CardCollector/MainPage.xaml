@@ -51,11 +51,6 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <CardCollector:PlayerCardControl />
-                        <!--<StackPanel Background="Green" Margin="0,0,0,10" Orientation="Horizontal" Width="auto" Height="120">
-                            <Image Margin="10,10,0,0" x:Name="fotoJogador" Width="80" Height="80" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch ="UniformToFill" Source="{Binding caminhoFoto}"/>
-                            <TextBlock x:Name="nomeJogador" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,10,0,0" FontSize="36" Text="{Binding nomeJogador}"/>
-                            <TextBlock x:Name="timeJogador" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,83,0,0" Text="{Binding timeJogador}"/>
-                        </StackPanel>-->
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>         
