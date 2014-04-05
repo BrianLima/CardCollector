@@ -1,0 +1,49 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="CardCollector.About"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot contains the root grid where all other page content is placed-->
+    <Grid x:Name="LayoutRoot">
+        <phone:Panorama Title="sobre">
+
+            <!--Panorama item one-->
+            <phone:PanoramaItem Header="mais cards?">
+                <Grid>
+                    <TextBlock TextWrapping="Wrap">
+                        <Run Text="Quando você baixou esse App você ganhou 
+                                   dez cards assim como o seus amigos, troque 
+                                   seus cards com eles e complete o seu álbum! 
+                                   Você também pode ganhar mais cards ao fazer 
+                                   um review ou baixar um dos meus outros apps!"/>
+                    </TextBlock>
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="10,247,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="135,247,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="255,247,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </phone:PanoramaItem>
+
+            <!--Panorama item two-->
+            <phone:PanoramaItem Header="sobre">
+                <Grid>
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Left" Margin="3,7,0,0" VerticalAlignment="Top" Width="410" >
+                    <Run Text="Desenvolvido por Brian Lima @brianostorm"/>
+                    </TextBlock>
+                    <Image x:Name ="avatar" Height="242" Margin="101,71,103,170" VerticalAlignment="Center"/>
+
+                </Grid>
+            </phone:PanoramaItem>
+        </phone:Panorama>
+    </Grid>
+
+</phone:PhoneApplicationPage>

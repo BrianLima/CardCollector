@@ -42,7 +42,24 @@ namespace CardCollector
 
             // Create a new menu item with the localized string from AppResources.
             ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
+            appBarMenuItem.Text = "todos os cards";
+            appBarMenuItem.Click+=appBarMenuItem_Click;
             ApplicationBar.MenuItems.Add(appBarMenuItem);
+
+            ApplicationBarMenuItem appBarMenuItemAbout = new ApplicationBarMenuItem();
+            appBarMenuItemAbout.Text = "sobre";
+            appBarMenuItemAbout.Click += appBarMenuItemAbout_Click;
+            ApplicationBar.MenuItems.Add(appBarMenuItemAbout);
+        }
+
+        private void appBarMenuItemAbout_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/About.xaml", UriKind.Relative));
+        }
+
+        private void appBarMenuItem_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/AllCards.xaml", UriKind.Relative));
         }
 
         void appBarButton_Click(object sender, EventArgs e)
@@ -76,6 +93,12 @@ namespace CardCollector
             card.nivelRaridade = 1;
             card.quantidade = 1;
             card.Save();
+        }
+
+        private void trocar_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            MenuItem mi = sender as MenuItem;
+            //TODO:Implementar sistema de troca de cards
         }
     }
 }
