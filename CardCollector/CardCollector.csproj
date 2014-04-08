@@ -147,7 +147,13 @@
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Cards\HueHueBr\DaniAlves.jpg" />
+    <Content Include="Assets\Cards\HueHueBr\Dante.png" />
+    <Content Include="Assets\Cards\HueHueBr\DavidLuiz.jpg" />
     <Content Include="Assets\Cards\HueHueBr\JulioCesar.jpg" />
+    <Content Include="Assets\Cards\HueHueBr\Marcelo.jpg" />
+    <Content Include="Assets\Cards\HueHueBr\Ramires.jpg" />
+    <Content Include="Assets\Cards\HueHueBr\ThiagoSilva.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

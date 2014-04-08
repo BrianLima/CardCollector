@@ -14,25 +14,25 @@ namespace CardDataBase
         [Column(Name = "id", IsPrimaryKey = true, IsDbGenerated = true, CanBeNull = false)]
         public int id { get { return _id; } set { _id = value; } }
 
-        private string _nomeJogador;
-        [Column(Name = "nomeJogador", CanBeNull = false)]
-        public string nomeJogador { get { return _nomeJogador; } set { _nomeJogador = value; } }
+        private string _PlayerName;
+        [Column(Name = "PlayerName", CanBeNull = false)]
+        public string PlayerName { get { return _PlayerName; } set { _PlayerName = value; } }
 
-        private string _timeJogador;
-        [Column(Name="timeJogador", CanBeNull = false)]
-        public string timeJogador { get { return _timeJogador; } set { _timeJogador = value; } }
+        private string _PlayerTeam;
+        [Column(Name="PlayerTeam", CanBeNull = false)]
+        public string PlayerTeam { get { return _PlayerTeam; } set { _PlayerTeam = value; } }
 
-        private string _caminhoFoto;
-        [Column(Name = "caminhoFoto", CanBeNull = false)]
-        public string caminhoFoto { get { return _caminhoFoto; } set { _caminhoFoto = value; } }
+        private string _PlayerPath;
+        [Column(Name = "PlayerPath", CanBeNull = false)]
+        public string PlayerPath { get { return _PlayerPath; } set { _PlayerPath = value; } }
 
-        private int _nivelRaridade;
-        [Column(Name = "nivelRaridade", CanBeNull=false)]
-        public int nivelRaridade { get { return _nivelRaridade; } set { _nivelRaridade = value; } }
+        private int _Rarity;
+        [Column(Name = "Rarity", CanBeNull=false)]
+        public int Rarity { get { return _Rarity; } set { _Rarity = value; } }
 
-        private int _quantidade;
-        [Column(Name = "quantidade", CanBeNull = true)]
-        public int quantidade { get { return _quantidade; } set { _quantidade = value; } }
+        private int _Amount;
+        [Column(Name = "Amount", CanBeNull = true)]
+        public int Amount { get { return _Amount; } set { _Amount = value; } }
 
         public IEnumerable getAllCards()
         {

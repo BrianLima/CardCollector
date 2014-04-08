@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Data.Linq;
+using CardCollector;
 
 namespace CardDataBase
 {
@@ -33,7 +34,10 @@ namespace CardDataBase
             : base(connectionString)
         {
             if (!this.DatabaseExists())
+            {
                 this.CreateDatabase();
+                Players.gerarCards();
+            }
         }
 
     }

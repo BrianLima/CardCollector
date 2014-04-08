@@ -1,6 +1,5 @@
 ﻿<phone:PhoneApplicationPage xmlns:CardCollector="clr-namespace:CardCollector" 
     x:Class="CardCollector.MainPage"
-    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -32,10 +31,7 @@
             <ListBox Height="Auto" x:Name="listCards" Width="420">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <CardCollector:PlayerCardControl />
-                        <toolkit:ContextMenuService.ContextMenu>
-                            <toolkit:MenuItem Name ="contextTrocar" Header ="Trocar este card" tap ="trocar_Tap"/>
-                        </toolkit:ContextMenuService.ContextMenu>
+                        <CardCollector:PlayerCardControl/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>         

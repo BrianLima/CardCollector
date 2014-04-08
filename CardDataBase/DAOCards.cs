@@ -17,53 +17,53 @@ namespace CardDataBase
     public class DAOCards
     {
         /// <summary>
-        /// Pesquisa todos os cards cadastrados
+        /// Get's every card on the database
         /// </summary>
-        /// <returns>Todos os cards</returns>
+        /// <returns></returns>
         public IEnumerable<Cards> getAllCards()
         {
-            List<Cards> dados = new List<Cards>();
+            List<Cards> data = new List<Cards>();
             using (DataBaseContext db = new DataBaseContext(DataBaseContext.ConnectionString))
             {
-                dados = (from cards in db.cards 
-                         orderby cards.timeJogador 
+                data = (from cards in db.cards 
+                         orderby cards.PlayerTeam 
                          select cards).ToList();
             }
-            return dados;
+            return data;
         }
 
         /// <summary>
-        /// Pesquisa os cards do jogador
+        /// Get all the player cards
         /// </summary>
-        /// <returns>Os cards do jogador</returns>
+        /// <returns></returns>
         internal IEnumerable getMyCards()
         {
-            List<Cards> dados = new List<Cards>();
+            List<Cards> data = new List<Cards>();
             using(DataBaseContext db = new DataBaseContext(DataBaseContext.ConnectionString))
             {
-                dados = (from cards in db.cards
-                         where cards.quantidade > 0
-                         orderby cards.timeJogador
+                data = (from cards in db.cards
+                         where cards.Amount > 0
+                         orderby cards.PlayerTeam
                          select cards).ToList();
             }
-            return dados;
+            return data;
         }
 
         /// <summary>
-        /// Pesquisa um card especifico
+        /// Get a specific card
         /// </summary>
-        /// <param name="id">id do card</param>
-        /// <returns>card específico</returns>
+        /// <param name="id">card's id</param>
+        /// <returns>card</returns>
         public Cards getCard(int id)
         {
-            List<Cards> dado = new List<Cards>();
+            List<Cards> data = new List<Cards>();
             using(DataBaseContext db = new DataBaseContext(DataBaseContext.ConnectionString))
             {
-                dado = (from e in db.cards 
+                data = (from e in db.cards 
                         where e.id == id 
                         select e).ToList();
             }
-            return dado[0];
+            return data[0];
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace CardDataBase
         }
 
         /// <summary>
-        /// Aumenta em 1 o card especificado
+        /// Increase the card amount
         /// </summary>
         /// <param name="card"></param>
         /// <returns>bool</returns>
@@ -125,7 +125,7 @@ namespace CardDataBase
                     Cards update = (from tar in db.cards
                                     where tar.id == card.id
                                     select tar).First();
-                    update.quantidade += 1;
+                    update.Amount += 1;
                     db.SubmitChanges();
                 }
                 return true;
@@ -137,7 +137,7 @@ namespace CardDataBase
         }
 
         /// <summary>
-        /// Diminui 1 no card especificado
+        /// Decrease the card amount
         /// </summary>
         /// <param name="card"></param>
         /// <returns>bool</returns>
@@ -150,7 +150,7 @@ namespace CardDataBase
                     Cards update = (from tar in db.cards
                                     where tar.id == card.id
                                     select tar).First();
-                    update.quantidade -= 1;
+                    update.Amount -= 1;
                     db.SubmitChanges();
                 }
                 return true;

@@ -41,7 +41,7 @@ namespace CardCollector
             ApplicationBar.Buttons.Add(appBarButton1);
 
             // Create a new menu item with the localized string from AppResources.
-            ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
+            ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem();
             appBarMenuItem.Text = "todos os cards";
             appBarMenuItem.Click+=appBarMenuItem_Click;
             ApplicationBar.MenuItems.Add(appBarMenuItem);
@@ -71,7 +71,7 @@ namespace CardCollector
                 
                 Cards card = new Cards();
                 Random rand = new Random();
-                int id = rand.Next(1,2);
+                int id = rand.Next(1,6);
                 card = card.getCard(id);
                 card.Increase();
                 AtualizarCards();
@@ -87,11 +87,11 @@ namespace CardCollector
         private void criarCards()
         {
             Cards card = new Cards();
-            card.nomeJogador = "briano";
-            card.timeJogador = "time maroto";
-            card.caminhoFoto = "/Assets/Cards/HueHueBr/JulioCesar.jpg";
-            card.nivelRaridade = 1;
-            card.quantidade = 1;
+            card.PlayerName = "briano";
+            card.PlayerTeam = "time maroto";
+            card.PlayerPath = "/Assets/Cards/HueHueBr/JulioCesar.jpg";
+            card.Rarity = 1;
+            card.Amount = 1;
             card.Save();
         }
 
