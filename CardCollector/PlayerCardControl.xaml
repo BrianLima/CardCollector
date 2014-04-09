@@ -7,13 +7,14 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignHeight="110.402" Width="381">
+    d:DesignHeight="110.402" Width="381" Loaded="UserControl_Loaded">
 
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}" Margin="0,8,0,8">
-        <Image Source="{Binding PlayerPath}" x:Name="fotoJogador" HorizontalAlignment="Left" Height="80" Margin="10,4,0,0" VerticalAlignment="Top" Width="80" DoubleTap="fotoJogador_DoubleTap"/>
-        <TextBlock Text="{Binding PlayerName}" x:Name="nomeJogador" HorizontalAlignment="Left" Margin="95,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Width="276" Height="48"/>
-        <TextBlock Text="{Binding PlayerTeam}" x:Name="timeJogador" HorizontalAlignment="Left" Margin="95,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Height="27"/>
-        <TextBlock Text="{Binding Amount}" x:Name="quantidade" Margin="305,60,0,-1" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="39" HorizontalAlignment="Left"/>
-        <TextBlock Text="Total:" HorizontalAlignment="Left" Margin="256,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,1.331" Width="49"/>
+        <Image Source="{Binding PlayerPath}" x:Name="fotoJogador" HorizontalAlignment="Right" Margin="0,7,294,0" Width="80" DoubleTap="fotoJogador_DoubleTap" Stretch="UniformToFill" Height="80" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding PlayerName}" x:Name="nomeJogador" HorizontalAlignment="Left" Margin="92,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Width="267" Height="48"/>
+        <TextBlock Text="{Binding PlayerTeam}" x:Name="timeJogador" HorizontalAlignment="Left" Margin="95,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Height="27"/>
+        <TextBlock Text="{Binding Amount}" x:Name="quantidade" Margin="320,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="31" Width="39" HorizontalAlignment="Left"/>
+        <TextBlock Text="Total:" HorizontalAlignment="Left" Margin="271,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.39,1.331" Width="49"/>
+        <Rectangle Fill="{Binding color}" HorizontalAlignment="Left" Height="94" Margin="375,0,0,0" VerticalAlignment="Top" Width="6"/>
     </Grid>
 </UserControl>
