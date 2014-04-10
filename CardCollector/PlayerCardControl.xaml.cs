@@ -47,5 +47,15 @@ namespace CardCollector
                 }
             }
         }
+
+        private void SwapCard_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ViewCardDetail_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
