@@ -42,7 +42,8 @@ namespace CardCollector
                 Cards card = t.DataContext as Cards;
                 if (card.PlayerTeam == "Brasil")
                 {
-                    _color = "#11CF00";
+                    color1.Color = Colors.Green;
+                    color2.Color = Colors.Yellow;
                 }
             }
         }
