@@ -47,11 +47,5 @@ namespace CardCollector
                 }
             }
         }
-
-
-        private void ViewCardDetail_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

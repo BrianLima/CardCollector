@@ -27,22 +27,17 @@ namespace CardCollector
             listCards.ItemsSource = cards.getAllCards();
         }
 
-        private void StackPanel_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            var listItem = FindParent(sender as StackPanel, typeof(PlayerCardControl)) as PlayerCardControl;
-        }
+            var t = sender as MenuItem;
+            if (t != null)
+            {     
+                Cards card = t.DataContext as Cards;
 
-        private DependencyObject FindParent(DependencyObject child, Type type)
-        {
-            var parent = VisualTreeHelper.GetParent(child);
+                string stringVariable = card.id.ToString();
+                NavigationService.Navigate(new Uri("/SwapCard.xaml", UriKind.Relative));
 
-            if (parent != null && !type.IsInstanceOfType(parent))
-            {
-                return FindParent(parent, type);
-            }
-            else
-            {
-                return parent;
+                //NavigationService.Navigate(new Uri("/SwapCard.xaml?parameter=" + card.id.ToString(), UriKind.Relative));
             }
         }
     }
