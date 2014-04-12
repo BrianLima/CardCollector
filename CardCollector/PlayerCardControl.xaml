@@ -1,5 +1,4 @@
 ﻿<UserControl
-    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -34,11 +33,5 @@
                 </RadialGradientBrush>
             </es:Arc.Fill>
         </es:Arc>
-        <toolkit:ContextMenuService.ContextMenu>
-            <toolkit:ContextMenu>
-                <toolkit:MenuItem Header="Trocar este card" Click="SwapCard_Click"/>
-                <toolkit:MenuItem Header="Detalhes deste card" Click="ViewCardDetail_Click"/>
-            </toolkit:ContextMenu>
-        </toolkit:ContextMenuService.ContextMenu>
     </Grid>
 </UserControl>

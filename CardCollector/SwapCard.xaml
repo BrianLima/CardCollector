@@ -28,7 +28,18 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBlock x:Name="tbPeerList" Margin="25,368,0,142"/>
+            <TextBlock  x:Name="tbChat" FontSize="{StaticResource PhoneFontSizeSmall}" TextWrapping="Wrap" Width="440" />
+            <TextBox x:Name="txtMessage" Margin="10,0,122,533"/>
+            <Button x:Name="btnSendMessage" Content="Trocar!" Tap="SendMessage_Tap_1" Margin="334,2,0,535"/>
 
+            <ListBox x:Name="PeerList" Margin="8,244,2,10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding DisplayName}" FontSize="{StaticResource PhoneFontSizeMedium}" Margin="40,0,0,0"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
     </Grid>
 

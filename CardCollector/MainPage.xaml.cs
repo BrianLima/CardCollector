@@ -100,5 +100,16 @@ namespace CardCollector
             MenuItem mi = sender as MenuItem;
             //TODO:Implementar sistema de troca de cards
         }
+
+        private void SwapCard_Click(object sender, RoutedEventArgs e)
+        {
+            var t = sender as PlayerCardControl;
+            if (t != null)
+            {
+                Cards card = t.DataContext as Cards;
+                NavigationService.Navigate(new Uri("/SwapCard.xaml?parameter=" + card.id, UriKind.Relative));
+            }
+        }
+
     }
 }

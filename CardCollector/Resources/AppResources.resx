@@ -131,4 +131,16 @@
   <data name="first" xml:space="preserve">
     <value>Y</value>
   </data>
+  <data name="Format_IncomingMessageNoName" xml:space="preserve">
+    <value>&lt;--  {0}
+</value>
+  </data>
+  <data name="Format_IncomingMessageWithName" xml:space="preserve">
+    <value>[{0}] {1}
+</value>
+  </data>
+  <data name="Format_OutgoingMessage" xml:space="preserve">
+    <value>[me] {0} 
+</value>
+  </data>
 </root>
