@@ -35,9 +35,7 @@ namespace CardCollector
                 Cards card = t.DataContext as Cards;
 
                 string stringVariable = card.id.ToString();
-                NavigationService.Navigate(new Uri("/SwapCard.xaml", UriKind.Relative));
-
-                //NavigationService.Navigate(new Uri("/SwapCard.xaml?parameter=" + card.id.ToString(), UriKind.Relative));
+                NavigationService.Navigate(new Uri("/SwapCard.xaml?parameter=" + card.id, UriKind.Relative));
             }
         }
     }
