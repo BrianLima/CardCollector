@@ -28,13 +28,13 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Image HorizontalAlignment="Left" Height="200" Margin="10,10,0,0" VerticalAlignment="Top" Width="200"/>
-            <TextBlock x:Name="playerName" HorizontalAlignment="Left" Margin="215,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="26" FontFamily="Segoe WP Semibold" Width="231"/>
-            <TextBlock x:Name="playerTeam" HorizontalAlignment="Left" Margin="215,45,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="231" Foreground="#FFF3DADA"/>
-            <TextBlock HorizontalAlignment="Left" Margin="183,183,0,0" TextWrapping="Wrap" Text="nn" VerticalAlignment="Top" Width="27"/>
-            <TextBlock x:Name="tbPeerList" Margin="25,0,0,0"/>
+            <Image x:Name="playerImage" Stretch="UniformToFill" HorizontalAlignment="Left" Height="200" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" Source="{Binding PlayerPath}"/>
+            <TextBlock x:Name="playerName" HorizontalAlignment="Left" Margin="215,10,0,0" TextWrapping="Wrap" Text="{Binding PlayerName}" VerticalAlignment="Top" FontSize="26" FontFamily="Segoe WP Semibold" Width="231"/>
+            <TextBlock x:Name="playerTeam" HorizontalAlignment="Left" Margin="215,45,0,0" TextWrapping="Wrap" Text="{Binding PlayerTeam}" VerticalAlignment="Top" Width="231" Foreground="#FFF3DADA"/>
+            <TextBlock HorizontalAlignment="Left" Margin="183,183,0,0" TextWrapping="Wrap" Text="{Binding Amount}" VerticalAlignment="Top" Width="27"/>
+            <TextBlock x:Name="tbPeerList" Margin="10,215,10,347"/>
 
-            <ListBox Grid.Row="2" Grid.ColumnSpan="2" x:Name="PeerList" Margin="10,10,0,10">
+            <ListBox x:Name="PeerList" Margin="10,260,10,83">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Margin="40,0,0,0"/>
@@ -42,11 +42,10 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <Button x:Name="btnSendMessage" Content="Trocar" Tap="SendMessage_Tap_1"/>
-            <Button Grid.Row="0" Content="Procurar" x:Name="FindPeers" Tap="FindPeers_Tap" Margin="10,0,0,0"/>
-            <Button Grid.Row="3" Content="Conectar" x:Name="ConnectToSelected" Tap="ConnectToSelected_Tap_1" Margin="10,0,0,0"/>
+            <Button Content="Trocar" x:Name="btnSendMessage"  Tap="btnSendMessage_Tap" Margin="296,524,10,10"/>
+            <Button  Content="Procurar" x:Name="FindPeers" Tap="FindPeers_Tap" Margin="146,524,160,10"/>
+            <Button  Content="Conectar" x:Name="ConnectToSelected" Tap="ConnectToSelected_Tap" Margin="0,524,308,10"/>
 
         </Grid>
     </Grid>
-
 </phone:PhoneApplicationPage>

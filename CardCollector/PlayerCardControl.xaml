@@ -20,7 +20,7 @@
             <RowDefinition Height="80*"/>
             <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
-        <Image Source="{Binding PlayerPath}" x:Name="fotoJogador" HorizontalAlignment="Right" Margin="0,0,284,0" Width="80" DoubleTap="fotoJogador_DoubleTap" Stretch="UniformToFill" Height="80" VerticalAlignment="Top" Grid.Row="1"/>
+        <Image Source="{Binding PlayerPath}" x:Name="fotoJogador" HorizontalAlignment="Right" Margin="0,0,284,0" Width="80" Stretch="UniformToFill" Height="80" VerticalAlignment="Top" Grid.Row="1"/>
         <TextBlock Text="{Binding PlayerName}" x:Name="nomeJogador" HorizontalAlignment="Left" Margin="92,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Width="267" Height="48" Grid.RowSpan="2"/>
         <TextBlock Text="{Binding PlayerTeam}" x:Name="timeJogador" HorizontalAlignment="Left" Margin="95,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Height="27" Grid.Row="1"/>
         <TextBlock Text="{Binding Amount}" x:Name="quantidade" Margin="332,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="39" HorizontalAlignment="Left" Grid.Row="1"/>

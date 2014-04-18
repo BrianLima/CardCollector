@@ -64,6 +64,7 @@ namespace CardCollector
             
             card = new Cards();
             card = card.getCard(int.Parse(parameterValue));
+            this.DataContext = card;
         }
 
         protected override void OnNavigatingFrom(System.Windows.Navigation.NavigatingCancelEventArgs e)
@@ -113,7 +114,7 @@ namespace CardCollector
                 PeerFinder.Stop();
 
                 _peerName = peer.DisplayName;
-                UpdateChatBox("Troca Iniciada", true);
+                UpdateCard("Troca Iniciada", true);
 
                 // Since this is a chat, messages can be incoming and outgoing. 
                 // Listen for incoming messages.
@@ -137,14 +138,14 @@ namespace CardCollector
                 var message = await GetMessage();
 
                 // Add to chat
-                UpdateChatBox(message, true);
+                UpdateCard(message, true);
 
                 // Start listening for the next message.
                 ListenForIncomingMessage();
             }
             catch (Exception)
             {
-                UpdateChatBox("Troca Encerrada", true);
+                UpdateCard("Troca Encerrada", true);
                 CloseConnection(true);
             }
         }
@@ -195,11 +196,6 @@ namespace CardCollector
             return _dataReader.ReadString(messageLen);
         }
 
-        private void FindPeers_Tap(object sender, GestureEventArgs e)
-        {
-            RefreshPeerAppList();
-        }
-
         /// <summary>
         /// Asynchronous call to re-populate the ListBox of peers.
         /// </summary>
@@ -215,7 +211,7 @@ namespace CardCollector
 
                 if (peers.Count == 0)
                 {
-                    tbPeerList.Text = "Ninguém encontrado para trocar cards, tente novamente";
+                    tbPeerList.Text = "Ninguém encontrado para trocar cards.";
                 }
                 else
                 {
@@ -308,25 +304,24 @@ namespace CardCollector
             _dataWriter.WriteString(message);
             await _dataWriter.StoreAsync();
 
-            UpdateChatBox(message, false);
+            UpdateCard(message, false);
         }
 
-        private void UpdateChatBox(string message, bool isIncoming)
+        //You've swapped your card with someone, so increase or decrease it depending if you sent or received it
+        private void UpdateCard(string message, bool isIncoming)
         {
             if (isIncoming)
             {
                 message = (String.IsNullOrEmpty(_peerName)) ? String.Format(AppResources.Format_IncomingMessageNoName, message) : String.Format(AppResources.Format_IncomingMessageWithName, _peerName, message);
+                Cards receivedCard = card.getCard(int.Parse(message));
+                receivedCard.Increase();
             }
             else
             {
                 message = String.Format(AppResources.Format_OutgoingMessage, message);
+                Cards sentCard = card.getCard(int.Parse(message));
+                sentCard.Decrease();
             }
-
-            this.Dispatcher.BeginInvoke(() =>
-            {
-                //tbChat.Text = message + tbChat.Text;
-                //txtMessage.Text = (isIncoming) ? txtMessage.Text : string.Empty;
-            });
         }
 
         private void StartProgress(string message)
@@ -352,7 +347,17 @@ namespace CardCollector
             connectionSettingsTask.Show();
         }
 
-        private void ConnectToSelected_Tap_1(object sender, System.Windows.Input.GestureEventArgs e)
+        private void btnSendMessage_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            SendMessage(card.id.ToString());
+        }
+
+        private void FindPeers_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            RefreshPeerAppList();
+        }
+
+        private void ConnectToSelected_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             if (PeerList.SelectedItem == null)
             {
@@ -365,20 +370,7 @@ namespace CardCollector
             PeerInformation peer = pdi.PeerInfo;
 
             ConnectToPeer(peer);
-
         }
-
-        private void FindPeers_Tap(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            RefreshPeerAppList();
-        }
-
-        private void SendMessage_Tap_1(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            SendMessage(card.id.ToString());
-
-        }
-
     }
 
     public class PeerAppInfo
