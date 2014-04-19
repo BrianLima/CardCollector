@@ -203,7 +203,7 @@ namespace CardCollector
         {
             try
             {
-                StartProgress("finding peers ...");
+                StartProgress("Procurando Pessoas...");
                 var peers = await PeerFinder.FindAllPeersAsync();
 
                 // By clearing the backing data, we are effectively clearing the ListBox
@@ -308,6 +308,7 @@ namespace CardCollector
         }
 
         //You've swapped your card with someone, so increase or decrease it depending if you sent or received it
+        //Also, just for make sure, when the user connects to the another player we show a 
         private void UpdateCard(string message, bool isIncoming)
         {
             if (isIncoming)
@@ -316,9 +317,13 @@ namespace CardCollector
                 {
                     Cards receivedCard = card.getCard(int.Parse(message));
                     receivedCard.Increase();
-                }
 
-                message = (String.IsNullOrEmpty(_peerName)) ? String.Format(AppResources.Format_IncomingMessageNoName, message) : String.Format(AppResources.Format_IncomingMessageWithName, _peerName, message);
+                    message = "Recebeu um card do jogador " + receivedCard.PlayerName + " do time " + receivedCard.PlayerTeam + " de " + _peerName;
+                }
+                else
+                {
+                     message = (String.IsNullOrEmpty(_peerName)) ? String.Format(AppResources.Format_IncomingMessageNoName, message) : String.Format(AppResources.Format_IncomingMessageWithName, _peerName, message);
+                }
             }
             else
             {
@@ -326,10 +331,23 @@ namespace CardCollector
                 {
                     Cards sentCard = card.getCard(int.Parse(message));
                     sentCard.Decrease();
-                }
 
-                message = String.Format(AppResources.Format_OutgoingMessage, message);
+                    message = "Enviou um card do jogador " + sentCard.PlayerName + " do time " + sentCard.PlayerTeam + " de " + _peerName;
+                }
+                else
+                {
+                      message = String.Format(AppResources.Format_OutgoingMessage, message);
+                }
             }
+
+            this.Dispatcher.BeginInvoke(() =>
+            {
+                tbChat.Text = message + tbChat.Text;
+            });
+
+            //After swapping card, refresh the actual card
+            card.getCard(card.id);
+            this.DataContext = card;
         }
 
         private void StartProgress(string message)

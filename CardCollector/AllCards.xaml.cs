@@ -18,10 +18,10 @@ namespace CardCollector
         public AllCards()
         {
             InitializeComponent();
-            AtualizaCards();
+            ReloadCards();
         }
 
-        private void AtualizaCards()
+        private void ReloadCards()
         {
             Cards cards = new Cards();
             listCards.ItemsSource = cards.getAllCards();
@@ -31,12 +31,18 @@ namespace CardCollector
         {
             var t = sender as MenuItem;
             if (t != null)
-            {     
+            {
                 Cards card = t.DataContext as Cards;
 
                 string stringVariable = card.id.ToString();
                 NavigationService.Navigate(new Uri("/SwapCard.xaml?parameter=" + card.id, UriKind.Relative));
             }
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            ReloadCards();
         }
     }
 }
