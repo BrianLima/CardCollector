@@ -312,15 +312,23 @@ namespace CardCollector
         {
             if (isIncoming)
             {
+                if (message.Length == 1)
+                {
+                    Cards receivedCard = card.getCard(int.Parse(message));
+                    receivedCard.Increase();
+                }
+
                 message = (String.IsNullOrEmpty(_peerName)) ? String.Format(AppResources.Format_IncomingMessageNoName, message) : String.Format(AppResources.Format_IncomingMessageWithName, _peerName, message);
-                Cards receivedCard = card.getCard(int.Parse(message));
-                receivedCard.Increase();
             }
             else
             {
+                if (message.Length == 1)
+                {
+                    Cards sentCard = card.getCard(int.Parse(message));
+                    sentCard.Decrease();
+                }
+
                 message = String.Format(AppResources.Format_OutgoingMessage, message);
-                Cards sentCard = card.getCard(int.Parse(message));
-                sentCard.Decrease();
             }
         }
 

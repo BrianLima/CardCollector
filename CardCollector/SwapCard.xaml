@@ -43,8 +43,8 @@
             </ListBox>
 
             <Button Content="Trocar" x:Name="btnSendMessage"  Tap="btnSendMessage_Tap" Margin="296,524,10,10"/>
-            <Button  Content="Procurar" x:Name="FindPeers" Tap="FindPeers_Tap" Margin="146,524,160,10"/>
-            <Button  Content="Conectar" x:Name="ConnectToSelected" Tap="ConnectToSelected_Tap" Margin="0,524,308,10"/>
+            <Button Content="Procurar" x:Name="FindPeers" Tap="FindPeers_Tap" Margin="146,524,160,10"/>
+            <Button Content="Conectar" x:Name="ConnectToSelected" Tap="ConnectToSelected_Tap" Margin="0,524,308,10"/>
 
         </Grid>
     </Grid>
