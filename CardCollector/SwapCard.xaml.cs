@@ -36,8 +36,6 @@ namespace CardCollector
             InitializeComponent();
 
             SystemTray.SetProgressIndicator(this, new ProgressIndicator());
-
-            //this.DataContext = App.ChatName;
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -50,13 +48,9 @@ namespace CardCollector
             PeerFinder.ConnectionRequested += PeerFinder_ConnectionRequested;
 
             // Start advertising ourselves so that our peers can find us
-            //PeerFinder.DisplayName = App.ChatName;
             PeerFinder.Start();
 
             RefreshPeerAppList();
-
-            base.OnNavigatedTo(e);
-
 
             base.OnNavigatedTo(e);
 
@@ -69,7 +63,6 @@ namespace CardCollector
 
         protected override void OnNavigatingFrom(System.Windows.Navigation.NavigatingCancelEventArgs e)
         {
-
             PeerFinder.ConnectionRequested -= PeerFinder_ConnectionRequested;
 
             // Cleanup before we leave
@@ -189,7 +182,6 @@ namespace CardCollector
             // Each message is sent in two blocks.
             // The first is the size of the message.
             // The second if the message itself.
-            //var len = await GetMessageSize();
             await _dataReader.LoadAsync(4);
             uint messageLen = (uint)_dataReader.ReadInt32();
             await _dataReader.LoadAsync(messageLen);
@@ -222,10 +214,12 @@ namespace CardCollector
                         _peerApps.Add(new PeerAppInfo(peer));
                     }
 
-                    // If there is only one peer, go ahead and select it
+                    // If there is only one peer, go ahead and select it and conect to it.
                     if (PeerList.Items.Count == 1)
+                    {
                         PeerList.SelectedIndex = 0;
-
+                        performConnection();
+                    }
                 }
             }
             catch (Exception ex)
@@ -240,11 +234,11 @@ namespace CardCollector
                 }
                 else if ((uint)ex.HResult == ERR_MISSING_CAPS)
                 {
-                    MessageBox.Show("");
+                    MessageBox.Show("Faltam permissões");
                 }
                 else if ((uint)ex.HResult == ERR_NOT_ADVERTISING)
                 {
-                    MessageBox.Show("");
+                    MessageBox.Show("Erro ao se apresentar para o outro aparelho");
                 }
                 else
                 {
@@ -255,21 +249,6 @@ namespace CardCollector
             {
                 StopProgress();
             }
-        }
-
-        private void ConnectToSelected_Tap_1(object sender, GestureEventArgs e)
-        {
-            if (PeerList.SelectedItem == null)
-            {
-                MessageBox.Show("Você deve selecionar alguém da lista", "Não é possível se conectar", MessageBoxButton.OK);
-                return;
-            }
-
-            // Connect to the selected peer.
-            PeerAppInfo pdi = PeerList.SelectedItem as PeerAppInfo;
-            PeerInformation peer = pdi.PeerInfo;
-
-            ConnectToPeer(peer);
         }
 
         DataWriter _dataWriter;
@@ -384,6 +363,11 @@ namespace CardCollector
         }
 
         private void ConnectToSelected_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            performConnection();
+        }
+
+        private void performConnection()
         {
             if (PeerList.SelectedItem == null)
             {

@@ -20,26 +20,48 @@
             <!--Panorama item one-->
             <phone:PanoramaItem Header="mais cards?">
                 <Grid>
-                    <TextBlock TextWrapping="Wrap">
-                        <Run Text="Quando você baixou esse App você ganhou 
-                                   dez cards assim como o seus amigos, troque 
-                                   seus cards com eles e complete o seu álbum! 
-                                   Você também pode ganhar mais cards ao fazer 
-                                   um review ou baixar um dos meus outros apps!"/>
+                    <TextBlock TextWrapping="Wrap" Margin="0,0,0,319">
+                    	<Run Text="Quando você baixou esse App você ganhou                                     dez cards assim como o seus amigos, troque                                     seus cards com eles e complete o seu álbum!                                     Você também pode ganhar mais "/>
+                    	<Run Text=" 5 "/>
+                    	<Run Text="cards ao fazer"/>
+                    	<Run Text=" "/>
+                    	<Run Text="um review ou baixar um dos meus outros apps!"/>
                     </TextBlock>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="10,247,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="135,247,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="255,247,0,0" VerticalAlignment="Top"/>
+                    <Image x:Name = "banner1"  HorizontalAlignment="Left" Height="100" Margin="10,247,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/Misc/Wheel-256.png" Tap="banner1_Tap"/>
+                    <Image x:Name = "banner2" HorizontalAlignment="Left" Height="100" Margin="148,242,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/Misc/balongde-1.png" Tap="banner2_Tap"/>
+                    <Image x:Name = "banner3" HorizontalAlignment="Left" Height="100" Margin="284,247,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/Misc/ico.png" Tap="banner3_Tap"/>
+                    <TextBlock TextWrapping="Wrap" Margin="0,347,301,80" Text="Mundo Automotivo" TextAlignment="Center"/>
+                    <TextBlock TextWrapping="Wrap" Margin="148,347,172,80" Text="Copa Reader" TextAlignment="Center"/>
+                    <TextBlock TextWrapping="Wrap" Margin="284,347,36,80" Text="Tecmundo Reader" TextAlignment="Center"/>
                 </Grid>
             </phone:PanoramaItem>
 
             <!--Panorama item two-->
-            <phone:PanoramaItem Header="sobre">
+            <phone:PanoramaItem Header="contato">
                 <Grid>
-                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Left" Margin="3,7,0,0" VerticalAlignment="Top" Width="410" >
-                    <Run Text="Desenvolvido por Brian Lima @brianostorm"/>
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Left" Margin="3,7,0,0" VerticalAlignment="Top" Width="410" Text="Desenvolvido por Brian Lima" />
+                    <Image HorizontalAlignment="Left" Height="250" Margin="89,39,0,0" VerticalAlignment="Top" Width="250" Source="/Assets/Misc/briano.png" Stretch="UniformToFill"/>
+                    <Image x:Name="banner4" HorizontalAlignment="Left" Height="100" Margin="164,326,0,0" VerticalAlignment="Top" Width="100" Source="/Assets/Misc/twitter.png" Tap="banner4_Tap"/>
+                    <TextBlock TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,294,0,0" VerticalAlignment="Top" Width="410" Text="Duvidas? sugestões? Problemas? Contate-me:" />
+                </Grid>
+            </phone:PanoramaItem>
+            
+            <phone:PanoramaItem Header="direitos">
+                <Grid>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="463">
+                		<Run Text="Todas as "/>
+                		<Run Text="imagens "/>
+                		<Run Text="de times e jogadores utilizadas neste aplicativo são de propriedade de seus respectivos donos"/>
+                		<Run Text="."/>
+                		<LineBreak/>
+                		<Run/>
+                		<LineBreak/>
+                		<Run Text="Fifa, copa do mundo Fifa e relacionados são marcas registradas de Fifa, todos os direitos reservados."/>
+                		<LineBreak/>
+                		<Run/>
+                		<LineBreak/>
+                		<Run Text="Agradecimentos ao Icons8.com, a maior livraria online de icones gratuitos da internet."/>
                     </TextBlock>
-                    <Image x:Name ="avatar" Height="242" Margin="101,71,103,170" VerticalAlignment="Center"/>
 
                 </Grid>
             </phone:PanoramaItem>

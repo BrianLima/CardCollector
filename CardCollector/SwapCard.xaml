@@ -42,7 +42,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <UI:AdControl ApplicationId="test_client" AdUnitId="Image480_80" HorizontalAlignment="Left" Height="80" Margin="0,527,-24,0" VerticalAlignment="Top" Width="480"/>
+            <UI:AdControl ApplicationId="test_client" AdUnitId="Image480_80" HorizontalAlignment="Left" Height="80" Margin="-10,527,-14,0" VerticalAlignment="Top" Width="480"/>
             <TextBlock x:Name="tbPeerList" Margin="10,247,10,315"/>
             <Button Content="Trocar" x:Name="btnSendMessage"  Tap="btnSendMessage_Tap" Margin="303,446,3,88"/>
             <Button Content="Procurar" x:Name="FindPeers" Tap="FindPeers_Tap" Margin="0,446,306,88"/>

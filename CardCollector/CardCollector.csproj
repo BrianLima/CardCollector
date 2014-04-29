@@ -171,6 +171,11 @@
     <Content Include="Assets\Cards\HueHueBr\robinho.jpg" />
     <Content Include="Assets\Cards\HueHueBr\ThiagoSilva.png" />
     <Content Include="Assets\Cards\HueHueBr\Willian.jpg" />
+    <Content Include="Assets\Misc\balongde-1.png" />
+    <Content Include="Assets\Misc\briano.png" />
+    <Content Include="Assets\Misc\ico.png" />
+    <Content Include="Assets\Misc\twitter.png" />
+    <Content Include="Assets\Misc\Wheel-256.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -216,6 +221,7 @@
       <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
